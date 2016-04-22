@@ -1,0 +1,13 @@
+name = Site Configuration
+description = Features to track certain changes
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = site_frontpage
+features[variable][] = site_name
+features[variable][] = site_slogan
+features[variable][] = theme_default
+project path = sites/all/modules/custom/features

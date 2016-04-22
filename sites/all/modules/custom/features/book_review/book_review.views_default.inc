@@ -47,6 +47,8 @@ function book_review_views_default_views() {
   $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
   $handler->display->display_options['fields']['field_book_author']['label'] = '';
   $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_author']['element_wrapper_type'] = 'em';
+  $handler->display->display_options['fields']['field_book_author']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

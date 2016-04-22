@@ -1,0 +1,43 @@
+#logo-wrap h2 {
+  width: 223px;
+  height: 0px;
+  border-left-width: 14px;
+  margin-left: 129px;
+}
+
+.layout-978 #logo-wrap {
+  border-top-width: 0px;
+  height: 221px;
+}
+
+a span {
+  border-top-width: 0px;
+  margin-top: 0px;
+  font-size: 55px;
+}
+
+#logo-wrap h1 {
+  border-top-width: 0px;
+  height: 65px;
+  width: 950px;
+  font-size: 75px;
+}
+
+a img {
+  text-align: left;
+}
+
+#header .layout-978 {
+  height: 691px;
+  width: 978px;
+}
+
+#navigation #main-menu {
+  margin-top: 0px;
+  height: 47px;
+}
+
+body #header {
+  height: 659px;
+}
+

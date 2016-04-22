@@ -2,6 +2,8 @@
 www.devsaran.com
 */
 @import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -22,6 +24,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  color: #513831;
 }
 
 /* remember to define focus styles! */
@@ -31,6 +34,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
   background: #fff;
   line-height: 1;
+  color: #513831;
 }
 ol, ul {
   list-style: none;
@@ -63,14 +67,15 @@ header, hgroup, footer, section, article, aside {
 /* Body, Common Classes & Wrap */
 
 body {
-  font:14px Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   line-height:24px;
-  color:#555;
+  color:#513831;
 }
 a {
   text-decoration:none;
-  color: #000;
+  color: #513831;
   outline:none;
+  font-weight: bolder;
 }
 a:hover {
   color: #000;
@@ -79,11 +84,12 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   padding-bottom:15px;
-  color: #444444;
+  color: #513831;
   font-weight: bold;
+  font-family: 'Berkshire Swash', cursive;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #444444;
+  color: #513831;
 }
 h1 {
   font-size: 26px;
@@ -93,7 +99,7 @@ h2 {
 }
 h3, h4, h5, h6 {
   font-size: 16px;
-  color:#666;
+  color:#513831;
 }
 h4 {
   font-size: 14px;
@@ -108,6 +114,7 @@ h6 {
 p {
   padding-bottom:15px;
   line-height:24px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 strong {
   font-weight: bold;
@@ -333,25 +340,27 @@ td{
   min-width: 610px;
 }
 h1#site-name {
-  font-size: 45px;
-  font-family: 'Lobster';
+  font-size: 55px;
+  font-family:'Berkshire Swash', cursive;
   font-weight:normal;
   padding-bottom:0px;
 }
 h1#site-name a {
   line-height:54px;
+
 }
 h1#site-name a:hover {
-  color: #444444;
+  color: #513831;
 }
 h1#site-name a img {
-  max-height: 90px;
+  max-height: 200px;
   float:left;
   padding-right:20px;
 }
 h2#site-slogan {
-  font:14px Arial, Helvetica, sans-serif;
-  color:#666;
+  font:18px;
+  font-family: 'Josefin Sans', sans-serif;
+  color:#513831;
   padding:8px 0 0 0;
 }
 
@@ -579,9 +588,11 @@ h2#site-slogan {
 /* Page Title */
 #header #page-title {
   padding:34px 20px 0px;
+  font-family: 'Berkshire Swash', cursive;
 }
 #header #page-title p {
   padding-bottom:0;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 /* =Featured Slider
@@ -658,6 +669,7 @@ h2#site-slogan {
 ----------------------------------------------- */
 #main {
   padding-top:10px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 #preface-head {
   padding-top:30px;
@@ -666,18 +678,22 @@ h2#site-slogan {
   padding-bottom:30px;
   border-bottom:1px solid #DDDDDD;
   margin-bottom: 30px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .node h2.title {
   font-size: 22px;
+  font-family: 'Berkshire Swash', cursive;
 }
 #content, #sidebar {
   margin-bottom: 30px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 #main #content img {
   max-width:630px;
   background-color: #FFFFFF;
   border: 1px solid #BBBBBB;
   padding: 5px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .node-teaser img {
@@ -691,7 +707,7 @@ h2#site-slogan {
 
 #preface-wrap .block,
 .region-header .block,
-.region-footer .block, 
+.region-footer .block,
 .region-content-top .block,
 #footer-bottom .block {
   margin: 0px 0px 25px 0px;
@@ -699,7 +715,7 @@ h2#site-slogan {
 
 #preface-wrap .block > h2,
 .region-header .block > h2,
-.region-footer .block > h2, 
+.region-footer .block > h2,
 .region-content-top .block > h2,
 #footer-bottom .block > h2 {
   font-size: 18px;
@@ -710,7 +726,8 @@ h2#site-slogan {
 }
 
 #sidebar .block > h2 {
-  font-size: 18px;
+  font-size: 25px;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 #footer {
@@ -771,7 +788,7 @@ fieldset.collapsed { background: transparent; -khtml-border-radius: 0; -moz-bord
 
 fieldset legend { background: #dbdbdb; border: 1px solid #ccc; border-bottom: none; display: block; height: 2em;
 left: -1px; line-height: 2; padding: 0; position: absolute; text-indent: 10px; text-shadow: 0 1px 0 #fff; top: -12px; width: 100%;
--khtml-border-radius-topleft: 4px; -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; 
+-khtml-border-radius-topleft: 4px; -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px;
 -khtml-border-radius-topright: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; }
 
 fieldset.collapsed legend { -khtml-border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
@@ -832,7 +849,7 @@ border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
 
 .comment-form label { float: left; font-size: 0.929em; }
 
-.comment-form input, .comment-form .form-select { margin: 0; 
+.comment-form input, .comment-form .form-select { margin: 0;
 -khtml-border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 
 .comment-form .form-type-textarea label { float: none; }
@@ -893,19 +910,19 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-/* IE10 */ 
+/* IE10 */
 background-image: -ms-linear-gradient(top, #FFFFFF 0%, #E3E3E3 100%);
-/* Mozilla Firefox */ 
+/* Mozilla Firefox */
 background-image: -moz-linear-gradient(top, #FFFFFF 0%, #E3E3E3 100%);
-/* Opera */ 
+/* Opera */
 background-image: -o-linear-gradient(top, #FFFFFF 0%, #E3E3E3 100%);
-/* Webkit (Safari/Chrome 10) */ 
+/* Webkit (Safari/Chrome 10) */
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #E3E3E3));
-/* Webkit (Chrome 11+) */ 
+/* Webkit (Chrome 11+) */
 background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #E3E3E3 100%);
-/* Proposed W3C Markup */ 
+/* Proposed W3C Markup */
 background-image: linear-gradient(top, #FFFFFF 0%, #E3E3E3 100%);
-/* IE6-9 */ 
+/* IE6-9 */
 filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#E3E3E3');
 
 border: 1px solid #dbdbdb;
@@ -917,19 +934,19 @@ button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover {
-/* IE10 */ 
+/* IE10 */
 background-image: -ms-linear-gradient(top, #DBDBDB 0%, #F2F2F2 100%);
-/* Mozilla Firefox */ 
+/* Mozilla Firefox */
 background-image: -moz-linear-gradient(top, #DBDBDB 0%, #F2F2F2 100%);
-/* Opera */ 
+/* Opera */
 background-image: -o-linear-gradient(top, #DBDBDB 0%, #F2F2F2 100%);
-/* Webkit (Safari/Chrome 10) */ 
+/* Webkit (Safari/Chrome 10) */
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #DBDBDB), color-stop(1, #F2F2F2));
-/* Webkit (Chrome 11+) */ 
+/* Webkit (Chrome 11+) */
 background-image: -webkit-linear-gradient(top, #DBDBDB 0%, #F2F2F2 100%);
-/* Proposed W3C Markup */ 
+/* Proposed W3C Markup */
 background-image: linear-gradient(top, #DBDBDB 0%, #F2F2F2 100%);
-/* IE6-9 */ 
+/* IE6-9 */
 filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#DBDBDB', endColorstr='#F2F2F2');
 
 -moz-border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; -ms-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
@@ -942,7 +959,7 @@ cursor: pointer; }
 button.full-width,
 input[type="submit"].full-width,
 input[type="reset"].full-width,
-input[type="button"].full-width { 
+input[type="button"].full-width {
 width: 100%; padding-left: 0 !important; padding-right: 0 !important; text-align: center; }
 
 
@@ -1031,7 +1048,7 @@ ol.search-results { padding-left: 0; }
 }
 
 /*-------------------------------------------*
-/* Menus and item lists 
+/* Menus and item lists
 /*-------------------------------------------*/
 .item-list ul {
   margin: 0;
@@ -1164,6 +1181,7 @@ ul.inline, ul.links.inline {
 }
 
 #main .field-items .field-item{
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /*-------------------------------------------*
@@ -1294,7 +1312,6 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
   height: 35px;
 }
 
-#forum .name a{ 
+#forum .name a{
   font-size: 16px;
 }
-

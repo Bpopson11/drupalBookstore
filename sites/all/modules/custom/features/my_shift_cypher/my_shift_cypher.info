@@ -1,0 +1,9 @@
+name = My Shift Cypher
+description = Monitor changes for Shift Cypher
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = shift_cypher
+features[features_api][] = api:2
+features[menu_links][] = navigation_use-the-shift-cypher:shift_cypher

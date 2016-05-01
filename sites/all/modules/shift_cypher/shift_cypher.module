@@ -25,15 +25,17 @@ function shift_form() {
     );
 
     $form['shift_amount'] = array(
-      '#title' => 'Shift Amount',
-      '#type' => 'textfield',
-      '#description' => t('Please enter a number you want to shift by.'),
+        '#title' => 'Shift Amount',
+        '#type' => 'textfield',
+        '#description' => t('Please enter a number you want to shift by.'),
     );
 
     $form['shift_direction'] = array(
-      '#title' => 'Shift Direction',
-      '#type' => 'textfield',
-      '#description' => t('Please enter a direction (left or right) to shift.'),
+        '#title' => 'Shift Direction',
+        '#type' => 'textfield',
+        '#description' => t('Please enter a direction (left or right) to shift.'),
+        '#element_validate' => array('shift_direction_validate'),
+        '#required' => TRUE,
     );
 
     $form['submit'] = array(
@@ -42,6 +44,13 @@ function shift_form() {
     );
 
     return $form;
+}
+
+function shift_direction_validate($element, $form_state) {
+    $allowed = array('left', 'right');
+    if (!in_array($form_state['values']['shift_direction'], $allowed)) {
+        form_set_error('shift_direction', t('Please enter left or right'));
+    }
 }
 
 function shift_form_submit($form, &$form_state) {

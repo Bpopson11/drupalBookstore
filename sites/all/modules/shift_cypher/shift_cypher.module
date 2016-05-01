@@ -92,12 +92,42 @@ function element_validate_range($element) {
         form_error($element, t('Number must be less than 26 and greater than 0.'));
     }
 }
+
+
 ///END VALIDATIION
 
 
 ///FORM SUBMISSION
 function shift_form_submit($form, &$form_state) {
-    $form_state['redirect'] = 'success';
+    $alphabet;
+    $shift_amt = $form_state['values']['shift_amount'];
+    $shift_dir = strtolower($form_state['values']['shift_direction']);
+    $shift_phrase = strtolower($form_state['values']['phrase']);
+    $shift_phrase = str_split($shift_phrase);
+    $result = array();
+
+    foreach ($shift_phrase as $phrase) {
+        $phrase = $alphabet[$phrase];
+
+        if ($shift_dir == 'left') {
+            $new_spot = $phrase - $shift_amt;
+            if ($new_spot > 26) {
+                $new_spot = $new_spot + 26;
+            }
+        } elseif ($shift_dir == 'right') {
+            $new_spot = $phrase + $shift_amt;
+            if ($new_spot > 26) {
+                $new_spot = $new_spot - 26;
+            }
+        }
+        foreach ($alphabet as $key=> $value) {
+            if($new_spot == $value) {
+                $new_spot = $key;
+            }
+        }
+        array_push($result, $new_spot);
+    }
+    //session stuff
 }
 
 function shift_success() {

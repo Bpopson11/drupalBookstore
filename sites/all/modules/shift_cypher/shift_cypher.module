@@ -1,4 +1,35 @@
 <?php
+
+global $alphabet;
+$alphabet = array(
+    'a' => 0,
+    'b' =>  1,
+    'c' =>  2,
+    'd' =>  3,
+    'e' =>  4,
+    'f' =>  5,
+    'g' =>  6,
+    'h' =>  7,
+    'i' =>  8,
+    'j' =>  9,
+    'k' => 10,
+    'l' => 11,
+    'm' => 12,
+    'n' => 13,
+    'o' => 14,
+    'p' => 15,
+    'q' => 16,
+    'r' => 17,
+    's' => 18,
+    't' => 19,
+    'u' => 20,
+    'v' => 21,
+    'w' => 22,
+    'x' => 23,
+    'y' => 24,
+    'z' => 25,
+);
+
 function shift_cypher_menu () {
     $items['shift_cypher'] = array(
         'title' => 'Use the Shift Cypher!',
@@ -42,16 +73,17 @@ function shift_form() {
 
     $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => 'Use the Shift Cypher!',
+    '#value' => 'Use tshe Shift Cypher!',
     );
 
     return $form;
 }
 
+//VALIDATIION
 function shift_direction_validate($element, $form_state) {
-    $allowed = array('left', 'right');
+    $allowed = array('left', 'right', 'Left', 'Right');
     if (!in_array($form_state['values']['shift_direction'], $allowed)) {
-        form_set_error('shift_direction', t('Please enter left or right'));
+        form_set_error('shift_direction', t('Please enter left or right.'));
     }
 }
 
@@ -60,7 +92,10 @@ function element_validate_range($element) {
         form_error($element, t('Number must be less than 26 and greater than 0.'));
     }
 }
+///END VALIDATIION
 
+
+///FORM SUBMISSION
 function shift_form_submit($form, &$form_state) {
     $form_state['redirect'] = 'success';
 }

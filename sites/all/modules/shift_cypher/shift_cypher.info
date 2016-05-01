@@ -1,0 +1,5 @@
+name = Shift Cypher
+description = Cypher to shift letters for encryption.
+package = My Modules
+core = 7.x
+files[] = shift_cypher.module

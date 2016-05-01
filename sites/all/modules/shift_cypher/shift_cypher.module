@@ -1,0 +1,53 @@
+<?php
+function shift_cypher_menu () {
+    $items['shift_cypher'] = array(
+        'title' => 'Use the Shift Cypher!',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('shift_form'),
+        'access callback' => TRUE,
+        'type' =>  MENU_NORMAL_ITEM,
+    );
+
+    $items['success'] = array(
+        'title' => 'Success',
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+        'page callback' => 'shift_success',
+    );
+    return $items;
+}
+
+function shift_form() {
+    $form['phrase'] = array(
+        '#title' => 'Phrase',
+        '#type' => 'textfield',
+        '#description' => t('Please enter a phrase for the cypher.'),
+    );
+
+    $form['shift_amount'] = array(
+      '#title' => 'Shift Amount',
+      '#type' => 'textfield',
+      '#description' => t('Please enter a number you want to shift by.'),
+    );
+
+    $form['shift_direction'] = array(
+      '#title' => 'Shift Direction',
+      '#type' => 'textfield',
+      '#description' => t('Please enter a direction (left or right) to shift.'),
+    );
+
+    $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Use the Shift Cypher!',
+    );
+
+    return $form;
+}
+
+function shift_form_submit($form, &$form_state) {
+    $form_state['redirect'] = 'success';
+}
+
+function shift_success() {
+    return 'Woo totes worked!';
+}

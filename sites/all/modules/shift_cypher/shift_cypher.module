@@ -28,6 +28,8 @@ function shift_form() {
         '#title' => 'Shift Amount',
         '#type' => 'textfield',
         '#description' => t('Please enter a number you want to shift by.'),
+        '#element_validate' => array('element_validate_number', 'element_validate_range'),
+        '#required' => TRUE,
     );
 
     $form['shift_direction'] = array(
@@ -50,6 +52,12 @@ function shift_direction_validate($element, $form_state) {
     $allowed = array('left', 'right');
     if (!in_array($form_state['values']['shift_direction'], $allowed)) {
         form_set_error('shift_direction', t('Please enter left or right'));
+    }
+}
+
+function element_validate_range($element) {
+    if ($element['#value'] > 25 || $element['#value'] < 1) {
+        form_error($element, t('Number must be less than 26 and greater than 0.'));
     }
 }
 

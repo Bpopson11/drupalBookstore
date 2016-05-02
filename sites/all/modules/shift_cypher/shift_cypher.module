@@ -97,11 +97,11 @@ function element_validate_range($element) {
 
 function element_validate_scrub($element) {
     $to_shift = $element['#value'];
-    $leave_out = '/[0-9^\w":;()\'\-\s*]/';
-    if (preg_match($leave_out, $to_shift) === 1) {
+    $leave_out = '/[^\w!?.,":;()\'\-\s*]/';
+    $numbers = '/[0-9]/';
+    if ((preg_match($leave_out, $to_shift) === 1) || (preg_match($numbers, $to_shift) === 1)) {
         form_error($element, t('You may only use basic punctuation and letters.'));
     }
-
 }
 ///END VALIDATIION
 

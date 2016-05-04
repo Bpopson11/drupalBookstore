@@ -2,32 +2,32 @@
 
 global $alphabet;
 $alphabet = array(
-    'a' => 0,
-    'b' =>  1,
-    'c' =>  2,
-    'd' =>  3,
-    'e' =>  4,
-    'f' =>  5,
-    'g' =>  6,
-    'h' =>  7,
-    'i' =>  8,
-    'j' =>  9,
-    'k' => 10,
-    'l' => 11,
-    'm' => 12,
-    'n' => 13,
-    'o' => 14,
-    'p' => 15,
-    'q' => 16,
-    'r' => 17,
-    's' => 18,
-    't' => 19,
-    'u' => 20,
-    'v' => 21,
-    'w' => 22,
-    'x' => 23,
-    'y' => 24,
-    'z' => 25,
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
 );
 
 function shift_cypher_menu () {
@@ -111,37 +111,35 @@ function shift_form_submit($form, &$form_state) {
     global $alphabet;
     $shift_amt = $form_state['values']['shift_amount'];
     $shift_dir = strtolower($form_state['values']['shift_direction']);
-    $shift_phrase = strtolower($form_state['values']['phrase']);
-    $shift_phrase = str_split($shift_phrase);
+    $shift_phrase = str_split(strtolower($form_state['values']['phrase']));
     $result = array();
 
     foreach ($shift_phrase as $letters) {
-        $letters = $alphabet[$letters];
-
-        if ($shift_dir == 'left') {
-            $new_spot = $letters - $shift_amt;
-            if ($new_spot > 26) {
-                $new_spot = $new_spot + 26;
+        if (preg_match('/[!?.,":;\'\-\s*]/', $letters) === 1) {
+            array_push($result, $letters);
+        } else {
+            for ($i=0; $i < count($alphabet); $i++) {
+                if ($alphabet[$i] === $letters)
+                    if ($shift_dir == 'left') {
+                        $new_spot = $i - $shift_amt;
+                            if ($new_spot < 0) {
+                                $new_spot = $new_spot + 26;
+                            }
+                    } else {
+                        $new_spot = $i + $shift_amt;
+                            if ($new_spot > 25)
+                                $new_spot = $new_spot - 26;
+                    }
             }
-        } elseif ($shift_dir == 'right') {
-            $new_spot = $letters + $shift_amt;
-            if ($new_spot > 26) {
-                $new_spot = $new_spot - 26;
-            }
+            array_push($result, $alphabet[$new_spot]);
         }
-        foreach ($alphabet as $key => $value) {
-            if ($new_spot == $value) {
-                $new_spot = $key;
-            }
-        }
-        array_push($result, $new_spot);
     }
+    $result = implode($result);
     $_SESSION['shift_cypher'] = $result;
     $form_state['redirect'] = 'success';
 }
 
 function success() {
-    $result = $_SESSION['shift_cypher'];
-    $new_phrase = impode("", $result);
-    return 'Your new phrase is $new_phrase';
+    $new_phrase = $_SESSION['shift_cypher'];
+    return 'Your new phrase is ' . $new_phrase;
 }

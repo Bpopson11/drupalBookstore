@@ -1,0 +1,10 @@
+<?php
+function reviews_ajax_menu() {
+    $items['path-to-ajax/%/%'] = array(
+            'access arguments' => array('access content'),
+            'page callback' => 'reviews_ajax_ajax_callback',
+            'page arguments' => array(1,2),
+            'type' => MENU_CALLBACK,
+    );
+    return $items;
+}

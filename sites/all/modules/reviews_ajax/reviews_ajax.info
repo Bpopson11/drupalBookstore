@@ -1,5 +1,0 @@
-name = Reviews Page Ajax style
-description = Display reviews with Ajax.
-package = My Modules
-core = 7.x
-files[] = reviews_ajax.module

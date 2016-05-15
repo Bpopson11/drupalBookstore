@@ -1,0 +1,5 @@
+name = Ajax Reviews Block
+description = Display Nodes with Ajax.
+package = My Modules
+core = 7.x
+files[] = ajaxreviews.module

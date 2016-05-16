@@ -51,8 +51,8 @@ function element_validate_nucleotide($element) {
             }
         }
         $helix_two = implode("", $helix_two);
-        $helix_one = implode("", $helix_one);
-        return $helix_one && $helix_two;
+        $_SESSION['helix_generator'] = $new_nucleotides;
+        $form_state['redirect'] = 'success';
     }
 
 }

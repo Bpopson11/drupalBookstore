@@ -43,5 +43,17 @@ class DnaTestCase extends DrupalUnitTestCase{
     //Assert
     $expected_result = 'A';
     $this->assertTrue($result, $description);
+
+    $description = 'One string should return the proper partner';
+
+    //Arrange
+    $input = 'ATTGC';
+
+    //Act
+    $result = helix_generator($input);
+
+    //Assert
+    $expected_result = 'ATAACG';
+    $this->assertTrue($result, $description);
     }
 }

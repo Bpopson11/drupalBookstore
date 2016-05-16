@@ -9,11 +9,18 @@ function dna_menu() {
         'type'=> MENU_NORMAL_ITEM,
     );
 
+    $items['dna_success'] = array(
+        'title'=> 'Check out your sweet double helix!',
+        'page callback'=> array('dna_success'),
+        'access callback'=> TRUE,
+        'type'=> MENU_CALLBACK,
+    );
+
     return $items;
 }
 
 function dna_form() {
-    $form['nucelotides'] = array(
+    $form['nucleotides'] = array(
         '#title'=> 'Nucelotide String',
         '#type'=> 'textfield',
         '#description'=> t('Please enter a nucleotide string consisting of T, A, G, C letters only. No punctuation or spaces.'),
@@ -34,25 +41,37 @@ function element_validate_nucleotide($element) {
     if(preg_match("/[^actg]/i", $dna_string))  {
         form_set_error('nucleotides', t('This string does not present me with human nucleotides only. Cannot compute.'));
     }
+}
 
-    function helix_generator($input) {
-        $helix_one = str_split(strtoupper($input));
-        $helix_two = [];
+function helix_generator($dna_input) {
+    $helix_one = str_split(strtoupper($dna_input));
+    $_SESSION['first_helix'] = $helix_one;
+    $helix_two = [];
 
-        foreach ($helix_one as $letter) {
-            if ($letter === 'A') {
-                array_push($helix_two, 'T');
-            } elseif ($letter === 'T') {
-                array_push($helix_two, 'A');
-            } elseif ($letter === 'C') {
-                array_push($helix_two, 'G');
-            } elseif ($letter === 'G') {
-                array_push($helix_two, 'C');
-            }
+    foreach ($helix_one as $letter) {
+        if ($letter === 'A') {
+            array_push($helix_two, 'T');
+        } elseif ($letter === 'T') {
+            array_push($helix_two, 'A');
+        } elseif ($letter === 'C') {
+            array_push($helix_two, 'G');
+        } elseif ($letter === 'G') {
+            array_push($helix_two, 'C');
         }
-        $helix_two = implode("", $helix_two);
-        $_SESSION['helix_generator'] = $new_nucleotides;
-        $form_state['redirect'] = 'success';
     }
+    $helix_two = implode("", $helix_two);
+    return $helix_two;
+}
+
+function dna_form_submit($form, &$form_state) {
+    $helix_one = strtoupper($form_state['values']['nucleotides']);
+    $helix_two = helix_generator($helix_one);
+    $_SESSION['second_helix'] = $helix_two;
+    $form_state['redirect'] = 'dna_success';
+
+}
+
+function dna_success() {
+    return "<h2>Your input was</h2><h3> " . $_SESSION['first_helix'] . ",</h3><h2> And it's partner string is </h2><h3>" . $_SESSION['second_helix'] . "</h3>";
 
 }

@@ -1,11 +1,11 @@
 <?php
-class DnaTestCase extends DrupalWebTestCase {
+class DnaTest extends DrupalWebTestCase {
 
   public static function getInfo() {
       return array(
           'name' => 'DNA Functional Test',
           'description' => 'Ensure that the custom module is functional',
-          'group' => 'Custom Modules',
+          'group' => 'DNA Module',
       );
 }
 
@@ -17,4 +17,31 @@ class DnaTestCase extends DrupalWebTestCase {
       $this->drupalGet('dna');
   }
 
+}
+
+class DnaTestCase extends DrupalUnitTestCase{
+
+    public static function getInfo()
+    {
+        return array(
+            'name' => 'dna_match_up function Test',
+            'description' => 'Test the DNA Match up function.',
+            'group' => 'DNA Module',
+      );
+  }
+
+    public function dna_match_up() {
+
+    $description = 'One uppercase letter should return the proper partner';
+
+    //Arrange
+    $input = 'T';
+
+    //Act
+    $result = helix_generator($input);
+
+    //Assert
+    $expected_result = 'A';
+    $this->assertTrue($result, $description);
+    }
 }

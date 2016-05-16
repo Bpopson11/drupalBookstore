@@ -35,4 +35,24 @@ function element_validate_nucleotide($element) {
         form_set_error('nucleotides', t('This string does not present me with human nucleotides only. Cannot compute.'));
     }
 
+    function helix_generator($input) {
+        $helix_one = str_split(strtoupper($input));
+        $helix_two = [];
+
+        foreach ($helix_one as $letter) {
+            if ($letter === 'A') {
+                array_push($helix_two, 'T');
+            } elseif ($letter === 'T') {
+                array_push($helix_two, 'A');
+            } elseif ($letter === 'C') {
+                array_push($helix_two, 'G');
+            } elseif ($letter === 'G') {
+                array_push($helix_two, 'C');
+            }
+        }
+        $helix_two = implode("", $helix_two);
+        $helix_one = implode("", $helix_one);
+        return $helix_one && $helix_two;
+    }
+
 }

@@ -1,0 +1,5 @@
+name = DNA double helix calculator
+description = Returns other side of helix of the input string.
+package = My Modules
+core = 7.x
+files[] = dna.module, dna.test

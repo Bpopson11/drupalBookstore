@@ -3,15 +3,15 @@ class DnaTestCase extends DrupalWebTestCase {
 
   public static function getInfo() {
   return array(
-    'name' => 'DNA Example',
-    'description' => 'Ensure that the dna_example content type provided functions properly.',
-    'group' => 'Examples',
+      'name' => 'DNA Example',
+      'description' => 'Ensure that the custom module has web funtionality.',
+      'group' => 'Custom Modules',
   );
 }
 
-public function setUp() {
-  parent::setUp(array('dna_example'));
+  public function setUp() {
+      parent::setUp(array('dna'));
 
-}
+  }
 
 }

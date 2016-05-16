@@ -1,0 +1,39 @@
+<?php
+
+function dna_menu() {
+    $items['dna'] = array(
+        'title'=> 'DNA Generator',
+        'page callback'=> 'drupal_get_form',
+        'page arguments'=> array('dna_form'),
+        'access callback'=> TRUE,
+        'type'=> MENU_NORMAL_ITEM,
+    );
+
+    return $items;
+}
+
+function dna_form() {
+    $form['nucelotides'] = array(
+        '#title'=> 'Nucelotide String',
+        '#type'=> 'textfield',
+        '#description'=> t('Please enter a nucleotide string consisting of T, A, G, C letters only. No punctuation')
+        '#element_validate'=> array('element_validate_scrub'),
+        '#required'=> TRUE,
+    );
+
+    $form['submit'] = array(
+        '#type'=> 'submit',
+        '#value'=> 'Rock this helix!!',
+    );
+
+    return $form;
+}
+
+function element_validate_scrub($element) {
+    $dna_string = strtolower($element['#value']);
+    $accepted = array('a', 'c', 'g', 't');
+    if (!in_array($form_state['values']['nucleotides'], $allowed)) {
+        form_set_error('nucleotides', t('This string does not present me with human nucleotides only. Cannot compute.'))
+    }
+
+}

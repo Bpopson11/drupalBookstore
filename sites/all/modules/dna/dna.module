@@ -16,7 +16,7 @@ function dna_form() {
     $form['nucelotides'] = array(
         '#title'=> 'Nucelotide String',
         '#type'=> 'textfield',
-        '#description'=> t('Please enter a nucleotide string consisting of T, A, G, C letters only. No punctuation'),
+        '#description'=> t('Please enter a nucleotide string consisting of T, A, G, C letters only. No punctuation or spaces.'),
         '#element_validate'=> array('element_validate_nucleotide'),
         '#required'=> TRUE,
     );
@@ -30,9 +30,8 @@ function dna_form() {
 }
 
 function element_validate_nucleotide($element) {
-    $dna_string = str_split(strtolower($element['#value']));
-    $accepted = array('a', 'c', 'g', 't');
-    if (!in_array($form_state['values']['nucleotides'], $allowed)) {
+    $dna_string = $element['#value'];
+    if(preg_match("/[^actg]/i", $dna_string))  {
         form_set_error('nucleotides', t('This string does not present me with human nucleotides only. Cannot compute.'));
     }
 

@@ -11,7 +11,7 @@ function dna_menu() {
 
     $items['dna_success'] = array(
         'title'=> 'Check out your sweet double helix!',
-        'page callback'=> array('dna_success'),
+        'page callback'=> 'dna_success',
         'access callback'=> TRUE,
         'type'=> MENU_CALLBACK,
     );
@@ -72,6 +72,6 @@ function dna_form_submit($form, &$form_state) {
 }
 
 function dna_success() {
-    return "<h2>Your input was</h2><h3> " . $_SESSION['first_helix'] . ",</h3><h2> And it's partner string is </h2><h3>" . $_SESSION['second_helix'] . "</h3>";
+    return "<h2>Your input was</h2><h3> " . implode("",$_SESSION['first_helix']) . "</h3><h2> And it's partner string is </h2><h3>" . $_SESSION['second_helix'] . "</h3>";
 
 }
